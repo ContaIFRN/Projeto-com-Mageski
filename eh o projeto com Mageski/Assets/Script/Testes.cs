@@ -22,13 +22,13 @@ public class Testes : MonoBehaviour
 
     private float Velocidade = 4.5f;
     private int EspaçoDeInventario = 10;
-    private bool Vivo = false;
+    private bool Vivo = true;
     [SerializeField] private float DanoDoPersonagem = 10.5f;
     [SerializeField] private float VidaDoPersonagem = 150f;
     [SerializeField] private string nomeDoPersonagem = "Guerreiro";
     public string ArmaDoPersonagem = "NomeDaArma";
     public bool UsaArmadura = true;
-    public float ReduçãoDeDanoDaArmadura = 1.5f;
+    public float ReducaoDeDanoDaArmadura = 1.5f;
 
 
 
