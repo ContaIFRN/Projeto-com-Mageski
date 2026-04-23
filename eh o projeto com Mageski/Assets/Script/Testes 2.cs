@@ -34,7 +34,7 @@ public class Testes2 : MonoBehaviour
           A = A / 15; */
 
 
-        for (int i= 100; i >B; i--)
+        for (int i = 0; i <= B; i++)
         {
             Debug.Log(i);
         }
