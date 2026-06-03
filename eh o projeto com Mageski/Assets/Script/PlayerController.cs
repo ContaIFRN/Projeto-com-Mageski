@@ -27,9 +27,20 @@ public class PlayerController : MonoBehaviour
 
         direction = new Vector3(horizontal, 0f, vertical).normalized; //o new Vector3 é para criar um vetor, nesse caso o "direction" que tem os valores de "horizontal" e "vertical".
         //normalized é para normalizar o vetor, ou seja, deixar ele com o mesmo tamanho, independente da direção que ele esteja apontando. 
+
         controller.Move(direction * movementSpeed * Time.deltaTime);
         
-        if(Direction)
+        if(direction.magnitude > 0.1f )
+        {
+           float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+
+        }
+        
+        
+
+
+
+        
 
      
         
