@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private CharacterController controller;
     private Vector3 direction;
+    private Animator animator;
 
     [Header("Player Settings")]
     [SerializeField] private float movementSpeed;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>(); //GetComponent é um método que serve para pegar um componente que esteja anexado ao mesmo GameObject que o script
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,9 +45,20 @@ public class PlayerController : MonoBehaviour
         {
            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg; //Mathf.Atan2 eh uma biblioteca matematica que serve para fazer calculos matematicos
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f); //targetAngle no y pois é a rotação do jogador em torno do eixo y e somente nele.
+            
+            animator.SetBool("I Walk", true); //SetBool é um método do Animator que serve para definir o valor de um parâmetro booleano,
+                                              //nesse caso "I Walk", que é o nome do parâmetro que eu criei no Animator para controlar a animação de caminhada.
         }
-        
-       
+
+        else
+        {
+            animator.SetBool("I Walk", false); //Se o jogador não estiver se movendo, a animação de caminhada é desativada.
+        }
+
+
+
+
+
 
 
 
