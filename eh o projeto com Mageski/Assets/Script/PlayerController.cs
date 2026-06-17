@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 direction;
     private Animator animator;
+    private bool iWalk;
 
     [Header("Player Settings")]
     [SerializeField] private float movementSpeed;
@@ -31,32 +32,27 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical"); //Estou pegoando o input em y  
         //GetAxis é um metodo do Input que serve para pegar o input do jogador, ele recebe uma string que representa o nome do eixo que queremos pegar, nesse caso "Horizontal" e "Vertical".
 
-
         direction = new Vector3(horizontal, 0f, vertical).normalized; //o new Vector3 é para criar um vetor, nesse caso o "direction" que tem os valores de "horizontal" e "vertical".
         //normalized é para normalizar o vetor, ou seja, deixar ele com o mesmo tamanho, independente da direção que ele esteja apontando. 
 
-
-        controller.Move(direction * movementSpeed * Time.deltaTime); //Move é um método do CharacterController que serve para mover o personagem, ele recebe um vetor de direção,
-                                                                     //a velocidade e o tempo entre os frames (Time.deltaTime) para garantir que o movimento seja suave e consistente,
-                                                                     //independente da taxa de quadros do jogo.
-
+        
 
         if (direction.magnitude > 0.1f) //0.1f para identificar mais facilmente se o jogador quer ou não se mover. Se passar de 0.1f, o jogador quer se mover, se for menor, ele não quer se mover.
         {
            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg; //Mathf.Atan2 eh uma biblioteca matematica que serve para fazer calculos matematicos
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f); //targetAngle no y pois é a rotação do jogador em torno do eixo y e somente nele.
             
-            animator.SetBool("I Walk", true); //SetBool é um método do Animator que serve para definir o valor de um parâmetro booleano,
-                                              //nesse caso "I Walk", que é o nome do parâmetro que eu criei no Animator para controlar a animação de caminhada.
+            iWalk = true;            
         }
-
         else
         {
-            animator.SetBool("I Walk", false); //Se o jogador não estiver se movendo, a animação de caminhada é desativada.
+            iWalk = false;  
         }
 
-
-
+        animator.SetBool("iWalk", iWalk); //SetBool é um método do Animator que serve para definir o valor de um parâmetro do Animator, nesse caso o "iWalk" que é um parâmetro do tipo bool.
+        controller.Move(direction * movementSpeed * Time.deltaTime); //Move é um método do CharacterController que serve para mover o personagem, ele recebe um vetor de direção,
+                                                                     //a velocidade e o tempo entre os frames (Time.deltaTime) para garantir que o movimento seja suave e consistente,
+                                                                     //independente da taxa de quadros do jogo.
 
 
 
