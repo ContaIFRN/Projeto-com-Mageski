@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,9 +15,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool iWalk;
     
+    
     //Area dedicada para as cameras 
     [Header("Cameras")]
-    
+    [SerializeField] GameObject camB;
     
     //Area dedicada para as configuracoes do player
     [Header("Player Settings")]
@@ -63,19 +65,29 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool("iWalk", iWalk); //SetBool � um m�todo do Animator que serve para definir o valor de um par�metro do Animator, nesse caso o "iWalk" que � um par�metro do tipo bool.
         controller.Move(direction * movementSpeed * Time.deltaTime); //Move � um m�todo do CharacterController que serve para mover o personagem, ele recebe um vetor de dire��o,
-                                                                     //a velocidade e o tempo entre os frames (Time.deltaTime) para garantir que o movimento seja suave e consistente,
-                                                                     //independente da taxa de quadros do jogo.
+                                                                        //a velocidade e o tempo entre os frames (Time.deltaTime) para garantir que o movimento seja suave e consistente,
+                                                                        //independente da taxa de quadros do jogo.
 
+        
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "triggerCam":
+                camB.SetActive(true);
+                break;
+        }
+    }
 
-
-
-
-
-
-
-
-
-
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "triggerCam":
+                camB.SetActive(false);
+                break;
+        }
     }
 }
