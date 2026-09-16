@@ -5,12 +5,12 @@ public class Guerreiro :Persona
 
     private void Start()
     {
-        nome = "Guerreiro";
+        nome = "Val";
         vida = 30;
         velocidade = 2.5f;
         força = 16;
         tec = 3;
-        mana = 12;
+        
         
         Attack();
         
