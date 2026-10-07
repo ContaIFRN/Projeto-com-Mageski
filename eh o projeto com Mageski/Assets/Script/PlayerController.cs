@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private float movementSpeed;
 
+    [Header("Attack")] 
+    [SerializeField] private ParticleSystem fxAttack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1"))
         {
-            animator.SetTrigger("attack"); //SetTrigger � um m�todo do Animator que serve para ativar um gatilho do Animator, nesse caso o "iAttack" que � um gatilho do tipo trigger.
+            Attack();
         }
     }
 
@@ -74,5 +76,10 @@ public class PlayerController : MonoBehaviour
     private void UptadeAnimator()
     {
         animator.SetBool("iWalk", iWalk); //SetBool � um metodo do Animator que serve para definir o valor de um par�metro do Animator, nesse caso o "iWalk" que � um par�metro do tipo bool.
+    }
+
+    private void Attack()
+    {
+        animator.SetTrigger("attack");
     }
 }
