@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attack")] 
     [SerializeField] private ParticleSystem fxAttack;
+    
+    private bool isAttacK;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +48,7 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxis("Vertical"); //Estou pegoando o input em y  
         //GetAxis � um metodo do Input que serve para pegar o input do jogador, ele recebe uma string que representa o nome do eixo que queremos pegar, nesse caso "Horizontal" e "Vertical".
 
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && !isAttacK)
         {
             Attack();
         }
@@ -80,6 +83,15 @@ public class PlayerController : MonoBehaviour
 
     private void Attack()
     {
+        isAttacK = true;
         animator.SetTrigger("attack");
+        fxAttack.Emit(1);
+        
     }
+
+    public void AttackDone()
+    {
+        isAttacK = false;
+    }
+    
 }
