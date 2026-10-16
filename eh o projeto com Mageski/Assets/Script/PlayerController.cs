@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isAttacK;
     [SerializeField] private Transform hitBox;
     [Range(0.1f, 1f)] 
-    [SerializeField] float hitRange;
+    [SerializeField] private float hitRange;
     [SerializeField] private Collider[] hitInfo;
     [SerializeField] private LayerMask hitMask;
     
@@ -92,11 +92,21 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("attack");
         fxAttack.Emit(1);
         
+        hitInfo = Physics.OverlapSphere(hitBox.position, hitRange, hitMask);
+        
     }
 
     public void AttackDone()
     {
         isAttacK = false;
     }
-    
+
+    private void OnDrawGizmosSelected()
+    {
+        if (hitBox != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(hitBox.position, hitRange);
+        }
+    }
 }
