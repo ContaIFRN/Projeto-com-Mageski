@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float hitRange;
     [SerializeField] private Collider[] hitInfo;
     [SerializeField] private LayerMask hitMask;
-    
+    [SerializeField] private int amountDamage;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -93,6 +93,12 @@ public class PlayerController : MonoBehaviour
         fxAttack.Emit(1);
         
         hitInfo = Physics.OverlapSphere(hitBox.position, hitRange, hitMask);
+
+        foreach (Collider col in hitInfo)
+        {
+            col.gameObject.SendMessage("GetHit", amountDamage, SendMessageOptions.DontRequireReceiver);
+        }
+        
         
     }
 

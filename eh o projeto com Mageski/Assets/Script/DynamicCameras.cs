@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DynamicCamreas : MonoBehaviour
+public class DynamicCameras : MonoBehaviour
 {
     [Header("Cameras")]
     [SerializeField] GameObject camB;

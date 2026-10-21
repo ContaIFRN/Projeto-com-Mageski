@@ -873,7 +873,7 @@ Transform:
   m_GameObject: {fileID: 284882204}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2468119, y: -0.000000015692299, z: 0.0000000039966896, w: 0.9690634}
-  m_LocalPosition: {x: -0.03041315, y: 2.01702, z: -0.011829376}
+  m_LocalPosition: {x: -0.03041315, y: 1.79702, z: -0.011829376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1312,7 +1312,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2468119, y: -0.000000015692297, z: 0.00000000399669, w: 0.96906346}
-  m_LocalPosition: {x: -4.2401934, y: 2.78, z: 14.799001}
+  m_LocalPosition: {x: -4.2401934, y: 2.56, z: 14.799001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2470,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4663,6 +4663,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 64
+  amountDamage: 0
 --- !u!4 &1416649643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
@@ -6968,6 +6969,7 @@ GameObject:
   - component: {fileID: 7846588746457728089}
   - component: {fileID: 4821335650901575003}
   - component: {fileID: 7846588746458159226}
+  - component: {fileID: 7846588746458159227}
   m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
@@ -6998,6 +7000,18 @@ CapsuleCollider:
   m_Height: 0.4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7846588746458159227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846588746458159225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5369776cb034e4f85fcfea7974b0cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Grass
 --- !u!1 &8698882574236785912
 GameObject:
   m_ObjectHideFlags: 0
