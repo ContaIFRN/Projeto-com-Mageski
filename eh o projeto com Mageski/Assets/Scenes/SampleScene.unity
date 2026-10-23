@@ -2923,7 +2923,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -9552,7 +9552,7 @@ MonoBehaviour:
   movementSpeed: 5
   fxAttack: {fileID: 608805251}
   hitBox: {fileID: 2016064596}
-  hitRange: 0.435
+  hitRange: 0.58
   hitInfo: []
   hitMask:
     serializedVersion: 2
@@ -11907,7 +11907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5369776cb034e4f85fcfea7974b0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Grass
-  fxHit: {fileID: 0}
+  fxHit: {fileID: 733090247}
 --- !u!1 &8698882574236785912
 GameObject:
   m_ObjectHideFlags: 0
