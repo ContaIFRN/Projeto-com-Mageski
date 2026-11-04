@@ -9414,7 +9414,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 192
-  amountDamage: 0
+  amountDamage: 3
 --- !u!4 &1416649643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
@@ -11972,7 +11972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7edf81d4033b749b63f91b6ffd6daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySlime
-  hp: 1
+  hp: 10
 --- !u!205 &4821335650901575003
 LODGroup:
   m_ObjectHideFlags: 0
