@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class Grass : MonoBehaviour
 {
 
+    
     [SerializeField] private ParticleSystem fxHit;
     private bool isCut;    
     
