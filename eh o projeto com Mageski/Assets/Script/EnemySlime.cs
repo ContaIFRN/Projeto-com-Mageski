@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySlime : MonoBehaviour
@@ -49,5 +50,14 @@ public class EnemySlime : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         Destroy(this.gameObject);
     }
-    
+
+    private void StateManager()
+    {
+        switch ()
+        {
+            case
+                break;
+        }
+    }
+
 }
