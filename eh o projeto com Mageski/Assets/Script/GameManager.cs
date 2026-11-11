@@ -1,16 +1,19 @@
 using UnityEngine;
 
+
+public enum EnemyState
+{
+    IDLE,
+    ALERT,
+    EXPLORE,
+    PATROL,
+    FOLLOW,
+    FURY
+}
+
 public class GameManager : MonoBehaviour
 {
-
-    public enum EnemyState
-    {
-        IDDLE,
-        ALERT,
-        EXPLORE,
-        ATROL,
-        FURY
-    }
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

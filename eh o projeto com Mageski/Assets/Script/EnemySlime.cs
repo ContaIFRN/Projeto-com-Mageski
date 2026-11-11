@@ -9,7 +9,11 @@ public class EnemySlime : MonoBehaviour
 
     [SerializeField] private int hp;
     private bool isDie;
-    
+
+    [SerializeField] private EnemyState state;
+
+    [SerializeField] private const float idleWaitTime = 3f;
+    [SerializeField] private const float patrolWaitTime = 5f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,13 +55,62 @@ public class EnemySlime : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void StateManager()
+    private void StateManager() //Responsável por informar o que vai acontecer em cada estado, armazenando o que acontecerá em cada um deles
     {
-        switch ()
+        switch (state)
         {
-            case
+            case EnemyState.IDLE:
                 break;
+            case EnemyState.ALERT:
+                break;
+            case  EnemyState.EXPLORE:
+                break;
+            case EnemyState.PATROL:
+                break;
+            case EnemyState.FOLLOW:
+                break;
+            
         }
+    }
+
+    private void ChangeState(EnemyState mewState) //responsável por mudar de estado
+    {
+        
+        StopAllCoroutines();
+        
+        state = mewState;
+        
+        switch (state)
+        {
+            case EnemyState.IDLE:
+                break;
+            case EnemyState.PATROL:
+                break;
+            case EnemyState.ALERT:
+                break;
+            
+        }
+    }
+
+    private IEnumerator IdleRoutine()
+    {
+        yield return new WaitForSeconds(idleWaitTime);
+
+        if (Random.Range(0, 100) < 50)
+        {
+            ChangeState(EnemyState.IDLE);
+        }
+        else
+        {
+            ChangeState(EnemyState.PATROL);
+        }
+    }
+
+    private IEnumerator PatrolRoutine()
+    {
+        yield return new WaitForSeconds(patrolWaitTime);
+
+        ChangeState(EnemyState.IDLE);
     }
 
 }
