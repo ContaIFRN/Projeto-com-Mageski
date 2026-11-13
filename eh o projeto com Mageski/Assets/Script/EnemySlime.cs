@@ -19,6 +19,7 @@ public class EnemySlime : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        ChangeState(state);
     }
 
     // Update is called once per frame
@@ -83,8 +84,10 @@ public class EnemySlime : MonoBehaviour
         switch (state)
         {
             case EnemyState.IDLE:
+                StartCoroutine(IdleRoutine());
                 break;
             case EnemyState.PATROL:
+                StartCoroutine(PatrolRoutine());
                 break;
             case EnemyState.ALERT:
                 break;
