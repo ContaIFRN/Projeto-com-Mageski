@@ -1,10 +1,12 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySlime : MonoBehaviour
 {
 
+    private GameManager gameManager;
     private Animator anim;
 
     [SerializeField] private int hp;
@@ -15,10 +17,18 @@ public class EnemySlime : MonoBehaviour
     [SerializeField] private const float idleWaitTime = 3f;
     [SerializeField] private const float patrolWaitTime = 5f;
     
+    [Header("AI Details")]
+    private NavMeshAgent agent;
+    private Vector3 destination;
+    private int idWayPoint;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        gameManager = FindAnyObjectByType(typeof(GameManager)) as GameManager;
+        
         ChangeState(state);
     }
 
@@ -84,9 +94,14 @@ public class EnemySlime : MonoBehaviour
         switch (state)
         {
             case EnemyState.IDLE:
+                destination = transform.position;
+                agent.destination = destination;
                 StartCoroutine(IdleRoutine());
                 break;
             case EnemyState.PATROL:
+                idWayPoint = Random.Range(0, gameManager.slimeWayPoints.Length);
+                destination = gameManager.slimeWayPoints[idWayPoint].position;
+                agent.destination = destination;
                 StartCoroutine(PatrolRoutine());
                 break;
             case EnemyState.ALERT:
